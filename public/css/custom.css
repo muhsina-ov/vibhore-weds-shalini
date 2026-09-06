@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Vibhore & Shalini Wedding - Royal Wax Seal Royale Styles & Refinements
+   ========================================================================== */
+
+:root {
+  --royal-gold: #a67d2b;
+  --royal-gold-light: #cda95a;
+  --royal-gold-shimmer: #e8d08c;
+  --royal-burgundy: #5a0f1b;
+  --royal-burgundy-light: #7a1626;
+  --royal-bg: #f9f0e0;
+  --royal-card-bg: #fffdf8;
+  --royal-border: #d9c9a8;
+  --royal-text-dark: #3e2d1d;
+  --royal-text-muted: #6a5140;
+  --font-serif-cinzel: 'Cinzel', Georgia, serif;
+  --font-serif-ovo: 'Ovo', Georgia, serif;
+}
+
+/* Global smoothing */
+body {
+  background-color: var(--royal-bg) !important;
+  color: var(--royal-text-muted);
+  font-family: var(--font-serif-ovo);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* T396 Hero Typography Overrides for Vibhore & Shalini */
+.tn-elem__2487446043176340398328864790 .tn-atom {
+  font-family: var(--font-serif-cinzel) !important;
+  font-size: clamp(11px, 2.2vw, 15px) !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--royal-gold) !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+}
+
+.tn-elem__2487446043176340401720454780 .tn-atom {
+  font-family: var(--font-serif-cinzel) !important;
+  font-size: clamp(14px, 2.5vw, 18px) !important;
+  letter-spacing: 0.28em !important;
+  color: var(--royal-gold) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+.tn-elem__24874460431763402147625 .tn-atom {
+  line-height: 1.2 !important;
+  white-space: normal !important;
+}
+
+.tn-elem__24874460431780748008617000003 .tn-atom {
+  font-family: var(--font-serif-cinzel) !important;
+  font-size: clamp(22px, 3.5vw, 32px) !important;
+  color: var(--royal-burgundy) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+}
+
+.tn-elem__24874460431780748008617000005 .tn-atom {
+  font-family: var(--font-serif-ovo) !important;
+  font-size: clamp(15px, 2.2vw, 18px) !important;
+  color: var(--royal-text-muted) !important;
+  line-height: 1.65 !important;
+  white-space: normal !important;
+}
+
+/* Sections Styling */
+.royal-section {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.royal-heading-wrapper {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.royal-section-tag {
+  font-family: var(--font-serif-cinzel);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--royal-gold);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.royal-section-title {
+  font-family: var(--font-serif-cinzel);
+  font-size: clamp(26px, 4vw, 34px);
+  color: var(--royal-gold);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.06em;
+}
+
+.royal-section-sub {
+  font-family: var(--font-serif-ovo);
+  font-size: clamp(14px, 2.2vw, 17px);
+  color: var(--royal-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.royal-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto;
+}
+
+.royal-divider img {
+  height: 22px;
+  width: auto;
+  opacity: 0.85;
+}
+
+/* Scratch Card */
+.scratch-container {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: var(--royal-card-bg);
+  border: 1.5px solid var(--royal-border);
+  box-shadow: 0 12px 35px rgba(166, 125, 43, 0.16);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.scratch-revealed-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  background: radial-gradient(circle at center, #fffdf8 0%, #f7ecd6 100%);
+}
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  cursor: crosshair;
+  touch-action: none;
+  transition: opacity 0.8s ease;
+}
+
+/* Schedule Cards */
+.schedule-card {
+  background: var(--royal-card-bg);
+  border: 1px solid var(--royal-border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(166, 125, 43, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(166, 125, 43, 0.14);
+}
+
+/* Locations */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.location-card {
+  background: var(--royal-card-bg);
+  border: 1.5px solid var(--royal-border);
+  border-radius: 18px;
+  padding: 28px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(166, 125, 43, 0.10);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(166, 125, 43, 0.18);
+}
+
+/* Buttons */
+.btn-royal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 11px 18px;
+  background: var(--royal-burgundy);
+  color: #fffbf5 !important;
+  text-decoration: none;
+  border-radius: 25px;
+  font-family: var(--font-serif-cinzel);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(90, 15, 27, 0.25);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.btn-royal-primary:hover {
+  background: var(--royal-burgundy-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90, 15, 27, 0.35);
+}
+
+.btn-royal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--royal-gold) !important;
+  text-decoration: none;
+  border: 1.5px solid var(--royal-gold);
+  border-radius: 25px;
+  font-family: var(--font-serif-cinzel);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn-royal-secondary:hover {
+  background: rgba(166, 125, 43, 0.12);
+  transform: translateY(-2px);
+}
+
+/* RSVP Card */
+.rsvp-card {
+  background: var(--royal-card-bg);
+  border: 1.5px solid var(--royal-border);
+  border-radius: 22px;
+  padding: 38px 28px;
+  box-shadow: 0 12px 35px rgba(166, 125, 43, 0.14);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .royal-section {
+    padding: 30px 15px;
+  }
+  .schedule-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+}
