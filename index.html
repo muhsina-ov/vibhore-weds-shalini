@@ -134,6 +134,32 @@ body.wei-locked {
   height: 30px;
   fill: white;
 }
+
+@keyframes royalScrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@keyframes royalMouseWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(8px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 </style> <!-- Audio --> <audio id="weiAudio" loop=""> <source src="media/wedding_bg_music.mp3" type="audio/mp3"/> </audio> <!-- Envelope overlay --> <div id="weiOverlay"> <img alt="Open your invitation" draggable="false" id="weiImg" src="images/vs_envelope.jpg"/> <div id="weiTapWrap"> <div class="wei-chevron"></div> <div id="weiTapLabel">Tap to open</div> </div> </div> <!-- Video --> <div id="weiVideoWrap"> <video id="weiVideo" muted="" playsinline="" preload="auto" src="media/letter_open_vs.mp4"></video> </div> <!-- Floating play/pause button --> <div id="weiAudioBtn"> <svg id="weiIconPause" style="display:block" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <rect height="14" rx="1" width="4" x="6" y="5"></rect> <rect height="14" rx="1" width="4" x="14" y="5"></rect> </svg> <svg id="weiIconPlay" style="display:none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <polygon points="5,3 19,12 5,21"></polygon> </svg> </div> <script>
 (function () {
   var overlay    = document.getElementById('weiOverlay');
@@ -219,12 +245,12 @@ body.wei-locked {
 <!-- Soft radial vignette -->
 <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center 50%, rgba(249,240,224,0.08) 0%, rgba(249,240,224,0.65) 65%, rgba(249,240,224,0.98) 100%);"></div>
 </div>
-<!-- Arch Top Floral Elements (Properly Aligned Corner & Garland Accents) -->
+<!-- Arch Top Floral Elements (Balanced Royal Peony & Rose Corner Bouquets) -->
 <div style="position: absolute; top: -10px; left: -10px; width: 185px; max-width: 45%; z-index: 2; pointer-events: none;">
 <img alt="Royal Floral Frame Left" src="images/cdn/noroot_3.png" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));"/>
 </div>
-<div style="position: absolute; top: -10px; right: -10px; width: 180px; max-width: 44%; z-index: 2; pointer-events: none;">
-<img alt="Royal Floral Frame Right" src="images/cdn/noroot_10.png" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));"/>
+<div style="position: absolute; top: -10px; right: -10px; width: 185px; max-width: 45%; z-index: 2; pointer-events: none; transform: scaleX(-1);">
+<img alt="Royal Floral Frame Right" src="images/cdn/noroot_3.png" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));"/>
 </div>
 <!-- Main Content Area with Luminous Soft Glow Backdrop for 100% Opacity & Crystal-Clear Readability -->
 <div style="position: relative; z-index: 5; width: 100%; max-width: 345px; margin: auto 0; text-align: center; display: flex; flex-direction: column; align-items: center; background: radial-gradient(ellipse at center, rgba(255, 253, 248, 0.96) 0%, rgba(255, 251, 242, 0.90) 65%, rgba(255, 251, 242, 0) 100%); padding: 22px 14px; border-radius: 24px; box-sizing: border-box; box-shadow: 0 4px 20px rgba(166,125,43,0.1);">
@@ -254,13 +280,24 @@ body.wei-locked {
     Daughter of Mr. Yogendra Prajapati &amp; Mrs. Nirmala Prajapati
   </div>
 </div>
-<!-- Scroll Down Prompt -->
-<div style="margin-top: 2px; display: flex; flex-direction: column; align-items: center; gap: 4px;">
-  <div style="font-family: 'Cinzel', Georgia, serif; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: #8e6820; font-weight: 700; text-shadow: 0 1px 2px rgba(255,255,255,0.9);">
-    Scroll Down
+<!-- Luxury Royal Scroll Down Indicator -->
+<div id="heroScrollPrompt" onclick="var el=document.getElementById('rec_scratch_royal')||document.getElementById('rec2487446153'); if(el){el.scrollIntoView({behavior:'smooth'});}else{window.scrollBy({top:window.innerHeight*0.8,behavior:'smooth'});}" style="margin-top: 4px; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;">
+  <div style="font-family: 'Cinzel', Georgia, serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #8e6820; font-weight: 700; text-shadow: 0 1px 2px rgba(255,255,255,0.9); display: flex; align-items: center; gap: 6px;">
+    <span style="font-size: 8px; color: #a67d2b; opacity: 0.7;">✦</span>
+    <span style="background: linear-gradient(135deg, #7c581a 0%, #b88d37 50%, #7c581a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Scroll Down</span>
+    <span style="font-size: 8px; color: #a67d2b; opacity: 0.7;">✦</span>
   </div>
-  <div style="animation: weiChevron 2.2s ease-in-out infinite;">
-    <svg fill="none" height="10" stroke="#a67d2b" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 25 16" width="16"><path d="M1 1L12.5 13L24 1"></path></svg>
+  <!-- Elegant Royal Scroll Indicator Icon -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 3px; animation: royalScrollBounce 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;">
+    <!-- Sleek Golden Mouse Capsule -->
+    <div style="width: 18px; height: 28px; border: 1.5px solid #a67d2b; border-radius: 12px; position: relative; display: flex; justify-content: center; background: rgba(255, 253, 248, 0.55); box-shadow: 0 2px 8px rgba(166,125,43,0.18);">
+      <div style="width: 3px; height: 6px; background: #976f20; border-radius: 2px; position: absolute; top: 4px; animation: royalMouseWheel 1.8s ease-in-out infinite;"></div>
+    </div>
+    <!-- Cascading Gold Double Chevron -->
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; filter: drop-shadow(0 1px 2px rgba(166,125,43,0.25));">
+      <path d="M2 1.5L7 5.5L12 1.5" stroke="#a67d2b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3 5.5L7 8.5L11 5.5" stroke="#a67d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+    </svg>
   </div>
 </div>
 </div>
@@ -375,7 +412,7 @@ body.wei-locked {
 <div class="location-card" style="background:#fffdf8; border:1.5px solid #d9c9a8; border-radius:18px; padding:26px 22px; box-shadow:0 8px 24px rgba(166,125,43,0.1); display:flex; flex-direction:column; align-items:center; position:relative;">
 <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#a67d2b; margin-bottom:4px;">17th Nov 2026 • 1:00 PM</div>
 <div style="font-family:'Cinzel',serif; font-size:22px; color:#5a0f1b; font-weight:600; margin-bottom:4px;">Haldi Ceremony</div>
-<div style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:#3a2818; margin-bottom:4px;">Drive Inn 24</div>
+<div style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:#3a2818; margin-bottom:4px;">Jasmine Hall</div>
 <div style="font-family:'Ovo',serif; font-size:14px; line-height:1.5; color:#6a5140; margin-bottom:18px;">
   Delhi Road, Opposite Circuit House,<br/>Moradabad, Uttar Pradesh
 </div>
@@ -440,7 +477,7 @@ body.wei-locked {
 <div class="location-card" style="background:#fffdf8; border:1.5px solid #d9c9a8; border-radius:18px; padding:26px 22px; box-shadow:0 8px 24px rgba(166,125,43,0.1); display:flex; flex-direction:column; align-items:center; position:relative;">
 <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#a67d2b; margin-bottom:4px;">20th Nov 2026 • 8:00 PM</div>
 <div style="font-family:'Cinzel',serif; font-size:22px; color:#5a0f1b; font-weight:600; margin-bottom:4px;">Reception &amp; Pheras Ceremony</div>
-<div style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:#3a2818; margin-bottom:4px;">Drive Inn 24 Hotel &amp; Resort</div>
+<div style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:#3a2818; margin-bottom:4px;">Grand Kesar</div>
 <div style="font-family:'Ovo',serif; font-size:14px; line-height:1.5; color:#6a5140; margin-bottom:18px;">
   Delhi Road, Opposite Circuit House,<br/>Moradabad, Uttar Pradesh
 </div>
@@ -464,7 +501,7 @@ body.wei-locked {
 <span class="royal-section-tag" style="font-family:'Cinzel',serif; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; color:#a67d2b;">Guest Attire</span>
 <h2 class="royal-section-title" style="font-family:'Cinzel',serif; font-size:32px; color:#a67d2b; margin:4px 0 8px 0; font-weight:600; letter-spacing:0.06em;">Dress Code</h2>
 <p class="royal-section-sub" style="font-family:'Ovo',serif; font-size:16px; color:#6a5140; margin:0 auto; max-width:520px;">
-  We warmly invite our guests to embrace the celebratory color palette for our special ceremonies.
+  We warmly invite our guests to embrace the celebratory colour palette for our special ceremonies.
 </p>
 <div class="royal-divider" style="display:flex; justify-content:center; margin:12px auto;">
 <img alt="Flourish" src="images/cdn/acomm-decor.png" style="height:22px; opacity:0.85;"/>
