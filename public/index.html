@@ -313,8 +313,8 @@ body.wei-locked {
 </div>
 </div>
 
-<!-- Countdown Section - Permanently Visible & Fully Responsive -->
-<div class="r t-rec t-rec_pt_20 t-rec_pb_25" data-bg-color="#f9f0e0" id="rec_countdown_royal" style="padding-top:20px;padding-bottom:25px;background-color:#f9f0e0;">
+<!-- Countdown Section - Revealed after Scratch Card -->
+<div class="r t-rec t-rec_pt_20 t-rec_pb_25" data-bg-color="#f9f0e0" id="rec_countdown_royal" style="padding-top:20px;padding-bottom:25px;background-color:#f9f0e0;display:none;">
   <div class="royal-section" style="max-width: 600px; margin: 0 auto; text-align: center; padding: 0 16px;">
     <div class="royal-heading-wrapper" style="margin-bottom: 18px;">
       <span class="royal-section-tag" style="font-family:'Cinzel',serif; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; color:#a67d2b;">Countdown</span>
@@ -620,6 +620,13 @@ window.tildastatcookie='no';setTimeout(function(){(function(d,w,k,o,g) {var n=d.
     canvas.style.opacity = '0';
     canvas.style.pointerEvents = 'none';
     setTimeout(function() { canvas.style.display = 'none'; }, 600);
+
+    // Reveal Countdown Section after scratching
+    var countdownSec = document.getElementById('rec_countdown_royal');
+    if (countdownSec) {
+      countdownSec.style.display = 'block';
+      countdownSec.classList.add('is-revealed');
+    }
 
     if (window.confetti) {
       confetti({

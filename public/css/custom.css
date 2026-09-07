@@ -166,6 +166,27 @@ body {
   transition: opacity 0.8s ease;
 }
 
+/* Countdown Section - Revealed after Scratch Card */
+#rec_countdown_royal {
+  display: none;
+}
+
+#rec_countdown_royal.is-revealed {
+  display: block !important;
+  animation: countdownRevealFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes countdownRevealFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Schedule Cards */
 .schedule-card {
   background: var(--royal-card-bg);
